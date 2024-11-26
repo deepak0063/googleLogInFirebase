@@ -12,9 +12,10 @@ import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import Signup from './src/Signup';
 import Login from './src/Login';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import {webClientId} from './src/config';
+import {API_URL, WEB_CLIENT_ID} from "@env"
 
 const App: React.FC = () => {
+  console.log('API_URL: ', API_URL);
   const [isSignup, setIsSignup] = useState<boolean>(false);
 
   const {
@@ -34,7 +35,7 @@ const App: React.FC = () => {
       const has = await GoogleSignin.hasPlayServices();
       if (has) {
         GoogleSignin.configure({
-          webClientId: webClientId,
+          webClientId: WEB_CLIENT_ID,
         });
       }
     }

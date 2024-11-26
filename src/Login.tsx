@@ -11,7 +11,7 @@ import {
   GoogleSignin,
   GoogleSigninButton,
 } from '@react-native-google-signin/google-signin';
-import {webClientId} from './config';
+import { WEB_CLIENT_ID } from '@env';
 
 interface LoginProps {
   onSwitchToSignup: () => void;
@@ -27,7 +27,7 @@ const Login: React.FC<LoginProps> = ({onSwitchToSignup}) => {
       if (has) {
         GoogleSignin.configure({
           offlineAccess: true,
-          webClientId: webClientId,
+          webClientId: WEB_CLIENT_ID,
         });
       }
     }
